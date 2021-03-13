@@ -59,20 +59,20 @@ router.put("/:id", async (req, res, next) => {
         //console.log(updatedStudent)
         res.send(updatedStudent[1])
     } catch (error) {
-        
+        next(error)
     }
 });
 
 //delete a specific id
-router.delete("/:id", async (req, res, next) => {
-    try {
-        const id = req.params.id
-        await Student.destroy( {where: {id: id} })
-        res.sendStatus(204)
-    } catch (error) {
-        next(error)
-    }
-});
+// router.delete("/:id", async (req, res, next) => {
+//     try {
+//         const id = req.params.id
+//         await Student.destroy( { where: {id: id} })
+//         res.sendStatus(204)
+//     } catch (error) {
+//         next(error)
+//     }
+// });
 
 
 
