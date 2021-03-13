@@ -27,8 +27,8 @@ router.post('/', async (req, res, next) => {
   try {
     let student = await Student.create(req.body)
     res.status(201).send(student)
-  } catch (err) {
-    next(err)
+  } catch (error) {
+    next(error)
   }
 })
 
@@ -40,8 +40,8 @@ router.put('/:id', async (req, res, next) => {
       plain: true,
     })
     res.send(updatedStudentInfo[1])
-  } catch (err) {
-    next(err)
+  } catch (error) {
+    next(error)
   }
 })
 
@@ -49,8 +49,8 @@ router.delete('/:id', async (req, res, next) => {
   try {
     await Student.destroy({ where: { id: req.params.id } })
     res.status(204).send()
-  } catch (err) {
-    next(err)
+  } catch (error) {
+    next(error)
   }
 })
 
